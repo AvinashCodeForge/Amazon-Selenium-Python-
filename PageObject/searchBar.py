@@ -10,3 +10,8 @@ class LandingPage:
 
     def clickOnSearchIcon(self):
         self.driver.find_element(By.CSS_SELECTOR, "input[type='submit']")
+
+    def countUrlsFromHomePage(self):
+        elements= self.driver.find_elements(By.TAG_NAME, 'a')
+        count = len([element for element in elements if element.get_attribute('href')])
+        return count
