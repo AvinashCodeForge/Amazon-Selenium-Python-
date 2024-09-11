@@ -1,7 +1,5 @@
 import time
-
 import pytest
-
 from PageObject.loginpage import LoginPage
 
 
@@ -31,7 +29,6 @@ class Test_001:
         loginPage = LoginPage(self.driver)
         loginPage.searchItem()
         loginPage.clickOnSearchIcon()
-        loginPage = LoginPage(self.driver)
         loginPage.verify_search_results()
         loginPage.switchTab()
         title = loginPage.getTitle()
