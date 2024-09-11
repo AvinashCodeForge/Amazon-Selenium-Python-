@@ -1,31 +1,38 @@
 import time
-from PageObject.searchBar import LandingPage
+
+import pytest
+
+from PageObject.loginpage import LoginPage
 
 
 class Test_001:
-    def test_title(self, setup):
-        self.driver = setup
-        self.driver.get('https://www.amazon.in/ref=nav_logo')
-        title= self.driver.title
-        assert title == 'Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in'
-        time.sleep(2)
-        self.driver.close()
+    url = 'https://www.amazon.in/ref=nav_signin'
+    title = 'Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in'
 
-    def test_searchBox(self, setup):
+    def test_verifyHomePageTitle(self, setup):
         self.driver = setup
-        self.driver.get('https://www.amazon.in/ref=nav_logo')
-        self.lp = LandingPage(self.driver)
-        self.lp.searchBar()
-        self.lp.clickOnSearchIcon()
-        time.sleep(2)
-        self.driver.close()
+        self.driver.get(self.url)
+        login_page = LoginPage(self.driver)
+        title = login_page.getTitle()
+        assert title == self.title, f"Sign-in page title mismatch! Expected '{self.title}', but got '{title}'"
 
-    def test_getAllLinks(self, setup):
+    def test_verifySearchItemDisplayed(self, setup):
         self.driver = setup
-        self.driver.get('https://www.amazon.in/ref=nav_logo')
-        self.lp = LandingPage(self.driver)
-        nums_link=self.lp.countUrlsFromHomePage()
-        print(f"Number of links on the homepage: {nums_link}")
-        time.sleep(2)
-        self.driver.close()
+        self.driver.get(self.url)
+        loginPage = LoginPage(self.driver)
+        loginPage.searchItem()
+        loginPage.clickOnSearchIcon()
+        title=loginPage.getTitle()
+        assert title == 'Amazon.in : apple iphone 15 128 gb - yellow'
 
+    def test_verifyProductPage(self, setup):
+        self.driver = setup
+        self.driver.get(self.url)
+        loginPage = LoginPage(self.driver)
+        loginPage.searchItem()
+        loginPage.clickOnSearchIcon()
+        loginPage = LoginPage(self.driver)
+        loginPage.verify_search_results()
+        loginPage.switchTab()
+        title = loginPage.getTitle()
+        assert title == 'Apple iPhone 15 (128 GB) - Yellow : Amazon.in: Electronics'
