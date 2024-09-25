@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df9946e2-13d3-4a68-841b-a81db28f3f70" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Configuration/config.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Configuration/pytest.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PageObject/loginpage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageObject/loginpage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/conftest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/test_loginPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/test_loginPage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/locators/loginPageLocators.py" beforeDir="false" afterPath="$PROJECT_DIR$/locators/loginPageLocators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../J2Store/.idea/J2Store.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../J2Store/.idea/J2Store.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

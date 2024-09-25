@@ -11,35 +11,28 @@ class LoginPage:
 
     def __init__(self, driver):
         self.driver = driver
+        self.locators = LoginPageLocators(self.driver)
 
     def getTitle(self):
         return self.driver.title
 
-    def setEmail(self):
-        pass
-
     def hoverOnSignIn(self):
-        locatorPage = LoginPageLocators(self.driver)
-        locatorPage.hoverOverAndClickOnSignInButton()
+        self.locators.hoverOverAndClickOnSignInButton()
 
     def userEmail(self):
-        locatorPage = LoginPageLocators(self.driver)
-        locatorPage.emailInputField('ap_email')
+        self.locators.emailInputField('ap_email')
         time.sleep(3)
 
     def userPassword(self):
-        locatorPage = LoginPageLocators(self.driver)
-        locatorPage.passwordInput('ap_password')
+        self.locators.passwordInput('ap_password')
         time.sleep(3)
 
     def clickContinue(self):
-        locatorPage = LoginPageLocators(self.driver)
-        locatorPage.continueButton()
+        self.locators.continueButton()
         time.sleep(2)
 
     def clickOnSignIn(self):
-        locatorPage = LoginPageLocators(self.driver)
-        locatorPage.signInButton()
+        self.locators.signInButton()
 
     def saveCookies(self):
         # Once logged in, extract cookies
@@ -57,12 +50,10 @@ class LoginPage:
         self.driver.switch_to.window(handles[1])
 
     def searchItem(self):
-        locatorPage = LoginPageLocators(self.driver)
-        locatorPage.searchItem()
+        self.locators.searchItem()
 
     def clickOnSearchIcon(self):
-        locatorPage = LoginPageLocators(self.driver)
-        locatorPage.clickOnSearchIcon()
+        self.locators.clickOnSearchIcon()
 
     def getAllLinks(self, setup):
         self.driver = setup
@@ -80,9 +71,6 @@ class LoginPage:
         print(f"Number of links on the hamburger: {nums_link}")
         self.driver.close()
 
-    def addItemToTheCart(self):
-        pass
-
     def verify_search_results(self):
         wait = WebDriverWait(self.driver, 10)
         search_results = wait.until(EC.visibility_of_all_elements_located(
@@ -96,23 +84,20 @@ class LoginPage:
                 break
 
     def addToCartButton(self):
-        locatorPage = LoginPageLocators(self.driver)
-        item_check= locatorPage.checkItemIsAvailable()
-        print('Item check:', item_check)
-        if item_check == 'Currently unavailable.':
-            return
-        locatorPage.clickOnAddToCartButton()
+        # item_check= locatorPage.checkItemIsAvailable()
+        # print('Item check:', item_check)
+        # if item_check == 'Currently unavailable.':
+        #     return
+        self.locators.clickOnAddToCartButton()
 
     def goToCart(self):
-        locatorPage = LoginPageLocators(self.driver)
-        locatorPage.clickOnCartButton()
+        self.locators.clickOnCartButton()
 
     def cartItemPrice(self):
         subtotal = self.driver.find_element(By.XPATH, "//span[@id='sc-subtotal-amount-activecart']").text
         print(f"Total: {subtotal}")
 
     def selectQuantity(self):
-        locatorPage = LoginPageLocators(self.driver)
         wait = WebDriverWait(self.driver, 10)
-        select = Select(wait.until(EC.element_to_be_clickable(locatorPage.clickDropdown())))
+        select = Select(wait.until(EC.element_to_be_clickable(self.locators.clickDropdown())))
         select.select_by_value('2')
