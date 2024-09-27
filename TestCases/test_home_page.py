@@ -18,7 +18,8 @@ class Test_002:
 
 
 def navigateToSearchItemPage(login):
-    Test_002.test_verifySearchItemDisplayed(login)
+    test = Test_002()
+    test.test_verifySearchItemDisplayed(login)
     result_page = ProductSearchPage(login.driver)
     result_page.verify_search_results()
     result_page.switchTab()

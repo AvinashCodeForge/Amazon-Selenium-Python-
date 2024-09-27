@@ -1,6 +1,6 @@
 import time
 
-from TestCases.test_product_search_page import navigate
+from TestCases.test_product_search_page import navigateToCart
 from PageObject.cart_page import CartPage
 
 

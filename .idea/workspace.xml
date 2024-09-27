@@ -5,16 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df9946e2-13d3-4a68-841b-a81db28f3f70" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PageObject/cart_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PageObject/home_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PageObject/product_search_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestCases/test_cart_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestCases/test_home_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestCases/test_product_search_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PageObject/cart_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageObject/cart_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PageObject/home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageObject/home_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PageObject/loginpage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageObject/loginpage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PageObject/product_search_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageObject/product_search_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/test_cart_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/test_cart_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/test_home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/test_home_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/test_loginPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/test_loginPage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locators/loginPageLocators.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../J2Store/.idea/J2Store.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../J2Store/.idea/J2Store.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +45,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "Python tests.Python tests for test_home_page.Test_002.executor": "Run",
+    "Python tests.Python tests for test_home_page.Test_002.test_verifySearchItemDisplayed.executor": "Run",
     "Python tests.Python tests for test_loginPage.Test_001.test_verifyItemInCart.executor": "Run",
     "Python tests.Python tests in test_cart_page.py.executor": "Run",
     "Python tests.Python tests in test_home_page.py.executor": "Run",
@@ -57,7 +58,7 @@
     "Python.searchBar.executor": "Run",
     "Python.test_loginPage.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "createSeperateFiles",
+    "git-widget-placeholder": "master",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
@@ -66,7 +67,7 @@
       <recent name="C:\Users\Avinash\PycharmProjects\Amazon\locators" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python tests.Python tests for test_home_page.Test_002.test_verifySearchItemDisplayed">
     <configuration name="Python tests for test_home_page.Test_002" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="AutomatingAmazonWithSeleniumPython" />
       <option name="ENV_FILES" value="" />
@@ -79,6 +80,21 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test_home_page.Test_002&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_home_page.Test_002.test_verifySearchItemDisplayed" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="AutomatingAmazonWithSeleniumPython" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TestCases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_home_page.Test_002.test_verifySearchItemDisplayed&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -99,6 +115,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_home_page.Test_002.test_verifySearchItemDisplayed" />
         <item itemvalue="Python tests.Python tests for test_home_page.Test_002" />
         <item itemvalue="Python tests.Python tests for test_loginPage.Test_001.test_verifyItemInCart" />
       </list>
@@ -121,5 +138,8 @@
       <updated>1724691945704</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

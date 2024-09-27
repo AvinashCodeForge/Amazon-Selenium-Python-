@@ -1,5 +1,4 @@
 class Test_001:
-
     LOGIN_PAGE_TITLE = 'Amazon Sign In'
     TITLE = 'Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in'
 

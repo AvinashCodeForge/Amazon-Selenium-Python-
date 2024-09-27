@@ -1,29 +1,30 @@
 import time
 
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from locators.loginPageLocators import LoginPageLocators
 from Utilities.config_utils import ConfigUtilities
 
 
 class ProductSearchPage:
-
+    # Instance of the config.yaml
     config = ConfigUtilities('C:\\Users\\Avinash\\PycharmProjects\\Amazon\\Configuration\\config.yaml')
 
+    # Locators
+    SEARCH_BAR_ICON = (By.CSS_SELECTOR, '#twotabsearchtextbox')
+    ITEM = 'apple iphone 15 128 gb - yellow'
+    SEARCH_ICON = (By.CSS_SELECTOR, "input[type='submit']")
+    SEARCH_RESULTS = (By.XPATH, "//span[@class='a-size-medium a-color-base a-text-normal']")
+
+    # constructor
     def __init__(self, driver):
         self.driver = driver
-        self.LocatorsPage = LoginPageLocators()
 
-    def searchItem(self):
-        self.driver.find_element(*self.LocatorsPage.SEARCH_BAR_ICON).send_keys(self.LocatorsPage.ITEM)
-
-    def clickOnSearchIcon(self):
-        self.driver.find_element(*self.LocatorsPage.SEARCH_ICON).click()
-
+    # Get the search item from the search results.
     def verify_search_results(self):
         wait = WebDriverWait(self.driver, 10)
         search_results = wait.until(EC.visibility_of_all_elements_located(
-            self.LocatorsPage.SEARCH_RESULTS))
+            self.SEARCH_RESULTS))
         search_item = 'Apple iPhone 15 (128 GB) - Yellow'
 
         for item in search_results:
@@ -39,9 +40,9 @@ class ProductSearchPage:
         # def checkItemIsAvailable(self):
         #     return self.driver.find_element(self.CHECK_ITEM).text
 
+    # Method to switch to a new tabs.
     def switchTab(self):
         handles = self.driver.window_handles
-        # Switch to a new tab
         self.driver.switch_to.window(handles[1])
 
 
