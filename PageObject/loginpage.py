@@ -1,38 +1,53 @@
 import time
+import pickle
+
+from selenium.webdriver import ActionChains
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from locators.loginPageLocators import LoginPageLocators
-import pickle
+from Utilities.config_utils import ConfigUtilities
 
 
 class LoginPage:
 
+    config = ConfigUtilities('C:\\Users\\Avinash\\PycharmProjects\\Amazon\\Configuration\\config.yaml')
+
     def __init__(self, driver):
         self.driver = driver
-        self.locators = LoginPageLocators(self.driver)
+        self.LocatorsPage = LoginPageLocators()
 
     def getTitle(self):
         return self.driver.title
 
-    def hoverOnSignIn(self):
-        self.locators.hoverOverAndClickOnSignInButton()
+    def hoverOverAndClickOnSignInButton(self):
+        actions = ActionChains(self.driver)
+        # Step 1: Trigger verification email via Selenium
+        element = self.driver.find_element(*self.LocatorsPage.HOVER_OVER_ELEMENT)
+        actions.move_to_element(element).perform()
+        self.driver.find_element(By.XPATH, "//span[text()='Sign in']").click()
 
-    def userEmail(self):
-        self.locators.emailInputField('ap_email')
-        time.sleep(3)
+    def emailInputField(self, input):
+        email_field = self.driver.find_element(By.XPATH, f"//input[@id='{input}']")
+        email = "avinashch9998@gmail.com"
+        for char in email:
+            email_field.send_keys(char)
+            time.sleep(0.2)
 
-    def userPassword(self):
-        self.locators.passwordInput('ap_password')
-        time.sleep(3)
+    def userPassword(self, input):
+        password_field = self.driver.find_element(By.XPATH, f"//input[@id='{input}']")
+        password = "demoaccount@9"
+        for char in password:
+            password_field.send_keys(char)
+            time.sleep(0.2)
 
-    def clickContinue(self):
-        self.locators.continueButton()
+    def continueButton(self):
+        self.driver.find_element(*self.LocatorsPage.CONTINUE_BUTTON).click()
         time.sleep(2)
 
-    def clickOnSignIn(self):
-        self.locators.signInButton()
+    def signInButton(self):
+        self.driver.find_element(*self.LocatorsPage.SIGN_IN_BUTTON).click()
 
     def saveCookies(self):
         # Once logged in, extract cookies
@@ -50,31 +65,15 @@ class LoginPage:
         self.driver.switch_to.window(handles[1])
 
     def searchItem(self):
-        self.locators.searchItem()
+        self.driver.find_element(*self.LocatorsPage.SEARCH_BAR_ICON).send_keys(self.LocatorsPage.ITEM)
 
     def clickOnSearchIcon(self):
-        self.locators.clickOnSearchIcon()
-
-    def getAllLinks(self, setup):
-        self.driver = setup
-        self.driver.get('https://www.amazon.in/ref=nav_logo')
-        self.lp = LoginPageLocators(self.driver)
-        nums_link = self.lp.countUrlsFromHomePage()
-        print(f"Number of links on the homepage: {nums_link}")
-        self.driver.close()
-
-    def linksInHamburger(self, setup):
-        self.driver = setup
-        self.driver.get('https://www.amazon.in/ref=nav_logo')
-        self.lp = LoginPageLocators(self.driver)
-        nums_link = self.lp.clickOnHamburgerMenuAndGetCOuntOfLinks()
-        print(f"Number of links on the hamburger: {nums_link}")
-        self.driver.close()
+        self.driver.find_element(*self.LocatorsPage.SEARCH_ICON).click()
 
     def verify_search_results(self):
         wait = WebDriverWait(self.driver, 10)
         search_results = wait.until(EC.visibility_of_all_elements_located(
-            (By.XPATH, "//span[@class='a-size-medium a-color-base a-text-normal']")))
+            self.LocatorsPage.SEARCH_RESULTS))
         search_item = 'Apple iPhone 15 (128 GB) - Yellow'
 
         for item in search_results:
@@ -83,21 +82,35 @@ class LoginPage:
                 time.sleep(10)
                 break
 
-    def addToCartButton(self):
         # item_check= locatorPage.checkItemIsAvailable()
         # print('Item check:', item_check)
         # if item_check == 'Currently unavailable.':
         #     return
-        self.locators.clickOnAddToCartButton()
+        # def checkItemIsAvailable(self):
+        #     return self.driver.find_element(self.CHECK_ITEM).text
 
-    def goToCart(self):
-        self.locators.clickOnCartButton()
+    def clickOnAddToCartButton(self):
+        self.driver.find_element(*self.LocatorsPage.ADD_TO_CART_BUTTON).click()
+
+    def clickOnCartIcon(self):
+        self.driver.find_element(*self.LocatorsPage.CLICK_CART_ICON).click()
 
     def cartItemPrice(self):
-        subtotal = self.driver.find_element(By.XPATH, "//span[@id='sc-subtotal-amount-activecart']").text
+        subtotal = self.driver.find_element(*self.LocatorsPage.TOTAL_CART_PRICE).text
         print(f"Total: {subtotal}")
 
     def selectQuantity(self):
         wait = WebDriverWait(self.driver, 10)
-        select = Select(wait.until(EC.element_to_be_clickable(self.locators.clickDropdown())))
+        select = Select(wait.until(EC.element_to_be_clickable((By.XPATH, "//span[@tabindex='-1']"))))
         select.select_by_value('2')
+
+    def clickOnHamburgerMenuAndGetCountOfLinks(self):
+
+        hamburgerMenu = self.driver.find_element(*self.LocatorsPage.HAMBURGER_MENU_URLS)
+        hamburgerMenu.click()
+        elements = self.driver.find_elements(By.TAG_NAME, 'a')
+        count = len([element for element in elements if element.get_attribute('href')])
+        return count
+
+    def itemPrice(self):
+        self.driver.find_element(*self.LocatorsPage.ITEM_PRICE).text()

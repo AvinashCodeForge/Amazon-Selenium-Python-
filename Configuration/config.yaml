@@ -1,0 +1,5 @@
+url : 'https://www.amazon.in/ref=nav_signin'
+browser: 'chrome'
+credentials:
+  username: "avinashch9998@gmail.com"
+  password: "demoaccount@9"
