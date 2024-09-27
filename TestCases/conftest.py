@@ -22,16 +22,22 @@ def setup():
 
 
 @pytest.fixture(scope='function')
-def login(setup):
+def loginPage(setup):
     driver = setup
     driver.get(URL)
     driver.maximize_window()
     loginPage = LoginPage(driver)
     loginPage.hoverOverAndClickOnSignInButton()
     time.sleep(2)
-    loginPage.emailInputField('ap_email')
-    loginPage.continueButton()
-    loginPage.userPassword('ap_password')
-    loginPage.signInButton()
-    time.sleep(2)
     return loginPage
+
+
+@pytest.fixture(scope='function')
+def login(loginPage):
+    log = loginPage
+    log.emailInputField('ap_email')
+    log.continueButton()
+    log.userPassword('ap_password')
+    log.signInButton()
+    time.sleep(2)
+    return log
