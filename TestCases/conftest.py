@@ -26,6 +26,7 @@ def loginPage(setup):
     driver = setup
     driver.get(URL)
     driver.maximize_window()
+    time.sleep(2)
     loginPage = LoginPage(driver)
     loginPage.hoverOverAndClickOnSignInButton()
     time.sleep(2)

@@ -6,6 +6,7 @@ from PageObject.cart_page import CartPage
 
 class Test_004:
 
+    # Method to verify searched item in cart
     def test_verifyItemInCart(self, login):
         navigateToCart(login)
         cartItem = CartPage(login.driver)

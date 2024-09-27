@@ -5,10 +5,12 @@ from PageObject.product_search_page import ProductSearchPage
 class Test_002:
     TITLE = 'Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in'
 
+    # Method to verify the home page title
     def test_verifyHomePageTitle(self, login):
         title = login.getTitle()
         assert title == self.TITLE, f"Sign-in page title mismatch! Expected '{self.TITLE}', but got '{title}'"
 
+    # Method to Verify that searched item is displayed
     def test_verifySearchItemDisplayed(self, login):
         homePage = HomePage(login.driver)
         homePage.searchItem()

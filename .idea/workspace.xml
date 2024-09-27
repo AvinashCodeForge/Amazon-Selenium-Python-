@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df9946e2-13d3-4a68-841b-a81db28f3f70" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/TestCases/test_End2End.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObject/cart_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageObject/cart_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObject/home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageObject/home_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObject/loginpage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageObject/loginpage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObject/product_search_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageObject/product_search_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/test_cart_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/test_cart_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/test_home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/test_home_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/conftest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/test_loginPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/test_loginPage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locators/loginPageLocators.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/reports/report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../J2Store/.idea/J2Store.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../J2Store/.idea/J2Store.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,6 +45,7 @@
     "Python tests.Python tests for test_home_page.Test_002.executor": "Run",
     "Python tests.Python tests for test_home_page.Test_002.test_verifySearchItemDisplayed.executor": "Run",
     "Python tests.Python tests for test_loginPage.Test_001.test_verifyItemInCart.executor": "Run",
+    "Python tests.Python tests in test_End2End.py.executor": "Run",
     "Python tests.Python tests in test_cart_page.py.executor": "Run",
     "Python tests.Python tests in test_home_page.py.executor": "Run",
     "Python tests.Python tests in test_loginPage.py.executor": "Run",
@@ -67,7 +64,7 @@
       <recent name="C:\Users\Avinash\PycharmProjects\Amazon\locators" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_home_page.Test_002.test_verifySearchItemDisplayed">
+  <component name="RunManager">
     <configuration name="Python tests for test_home_page.Test_002" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="AutomatingAmazonWithSeleniumPython" />
       <option name="ENV_FILES" value="" />

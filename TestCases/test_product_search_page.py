@@ -3,10 +3,7 @@ from TestCases.test_home_page import navigateToSearchItemPage
 
 class Test_003:
 
-    # def test_verifyItemAddedToCartSuccessfully(self, login):
-    #     self.test_verifyProductPage(login)
-    #     time.sleep(10)
-
+    # Method to verify correct item displayed in the product page
     def test_verifyProductPage(self, login):
         navigateToSearchItemPage(login)
         title = login.getTitle()
